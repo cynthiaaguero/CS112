@@ -1,0 +1,33 @@
+Product daProduct = new Product(id, name, stock, day, demand);
+        int sectorSize = sectors[id % 10].getSize();
+        int IDmod10 = id % 10; 
+
+        if(sectorSize < 5) 
+        {
+            addToEnd(id, name, stock, day, demand);
+            fixHeap(id);
+        }
+        else 
+        if (sectorSize == 5) 
+        { 
+            int increment = ((IDmod10) + 1) % 10;
+            
+            while (increment != IDmod10)
+            {
+                int incrementSize = sectors[increment].getSize();
+                if (incrementSize < 5) 
+                {
+                    sectors[increment].add(daProduct); 
+                    sectors[increment].swim(sectors[increment].getSize());
+                    break;
+                }
+                increment = (increment + 1) % 10; 
+            }
+            if (increment == IDmod10)
+            {
+                evictIfNeeded(id);
+                addToEnd(id, name, stock, day, demand);
+                fixHeap(id);
+            }
+        }     
+    }
