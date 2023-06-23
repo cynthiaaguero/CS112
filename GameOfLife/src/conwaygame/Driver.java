@@ -57,42 +57,42 @@ public class Driver {
     public static Button[] constructors = new Button[constructorNames.length];
     
     // INPUT elements
-    public static Text inputLabel = new Text(14,50, "Filename:");
-    public static Rectangle inputInput = new Rectangle(42, 50, 20, 3, true);
-    public static Text inputFilename = new Text(24, 50, "", "LEFT");
-    public static Text inputExtension = new Text(64, 50, ".txt");
-    public static Text inputError = new Text(50, 35, "");
-    public static Button inputSubmit = new Button(80, 50, BTN_HALFWIDTH, BTN_HALFHEIGHT, inputNames[0], true);
-    public static Button[] inputs = new Button[]{inputSubmit};
+    public static Text inputLabel = new Text(14,50, "Filename:");  // Label for the input field
+    public static Rectangle inputInput = new Rectangle(42, 50, 20, 3, true);  // Input field rectangle
+    public static Text inputFilename = new Text(24, 50, "", "LEFT");  // Text for displaying the filename
+    public static Text inputExtension = new Text(64, 50, ".txt");  // Text for displaying the file extension
+    public static Text inputError = new Text(50, 35, "");  // Text for displaying any input error message
+    public static Button inputSubmit = new Button(80, 50, BTN_HALFWIDTH, BTN_HALFHEIGHT, inputNames[0], true);  // Submit button
+    public static Button[] inputs = new Button[]{inputSubmit};  // Array of input buttons
 
     // CREATE elements
-    public static Button[] createBtns = new Button[createNames.length];
-    public static Board createBoard = new Board(50, 50, 20, 20, DEAFULT_ROWS_AND_COLS, DEAFULT_ROWS_AND_COLS, false, new boolean[DEAFULT_ROWS_AND_COLS][DEAFULT_ROWS_AND_COLS]);
-    public static Text createLabel = new Text(12,8, "Filename:");
-    public static Rectangle createInput = new Rectangle(40, 8, 20, 3, true);
-    public static Text createFilename = new Text(22, 8, "", "LEFT");
-    public static Text createExtension = new Text(62, 8, ".txt");
-    public static Text createError = new Text(50, 16, "");
+    public static Button[] createBtns = new Button[createNames.length];  // Array of buttons for creating custom game
+    public static Board createBoard = new Board(50, 50, 20, 20, DEAFULT_ROWS_AND_COLS, DEAFULT_ROWS_AND_COLS, false, new boolean[DEAFULT_ROWS_AND_COLS][DEAFULT_ROWS_AND_COLS]);  // Board for creating custom game
+    public static Text createLabel = new Text(12,8, "Filename:");  // Label for the filename field in create page
+    public static Rectangle createInput = new Rectangle(40, 8, 20, 3, true);  // Input field rectangle in create page
+    public static Text createFilename = new Text(22, 8, "", "LEFT");  // Text for displaying the filename in create page
+    public static Text createExtension = new Text(62, 8, ".txt");  // Text for displaying the file extension in create page
+    public static Text createError = new Text(50, 16, "");  // Text for displaying any error message in create page
 
     // METHOD elements
-    public static Button[] methods = new Button[methodNames.length];
-    public static Board methodBoard = new Board(65, 45, 30, 30, -1, -1, false, null);
-    public static Text methodText = new Text(65, 90, "Select an Option");
-    public static Rectangle generationsBox = new Rectangle(60, 80, 10, 3, true);
-    public static Text stepsText = new Text(52, 80, "", "LEFT");
-    public static Button methodSubmit = new Button(80, 80, 8, BTN_HALFHEIGHT, "Submit", true);
+    public static Button[] methods = new Button[methodNames.length];  // Array of buttons for method options
+    public static Board methodBoard = new Board(65, 45, 30, 30, -1, -1, false, null);  // Board for displaying method-related information
+    public static Text methodText = new Text(65, 90, "Select an Option");  // Text for displaying the selected option in method page
+    public static Rectangle generationsBox = new Rectangle(60, 80, 10, 3, true);  // Input field rectangle for specifying the number of generations in method page
+    public static Text stepsText = new Text(52, 80, "", "LEFT");  // Text for displaying the number of generations in method page
+    public static Button methodSubmit = new Button(80, 80, 8, BTN_HALFHEIGHT, "Submit", true);  // Submit button in method page
     public static String methodFilename = "";
 
     public static void main(String[] args) {
-        initializeElements();
+        initializeElements();  // Initialize the elements of the pages
         StdDraw.enableDoubleBuffering();
         StdDraw.clear(BACKGROUND_COLOR);
         StdDraw.setXscale(0, 100);
         StdDraw.setYscale(0, 100);
         StdDraw.setPenColor(StdDraw.WHITE);
 
-        displayPage(Page.CONSTRUCTOR);
-        current = Page.CONSTRUCTOR;
+        displayPage(Page.CONSTRUCTOR);  // Display the constructor page initially
+        current = Page.CONSTRUCTOR;  // Set the current page to constructor page
 
         while (true) {
             if (StdDraw.isMousePressed()) {
@@ -149,7 +149,6 @@ public class Driver {
             }
         }
     }
-
 
     public static void initializeElements() {
         // CONSTRUCTOR

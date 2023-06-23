@@ -6,32 +6,32 @@ package conwaygame;
 import java.awt.Color;
 
 public class Board extends Rectangle {
-    public int rows;
-    public int cols;
-    public boolean[][] board;
+    public int rows;              // Number of rows in the board
+    public int cols;              // Number of columns in the board
+    public boolean[][] board;     // 2D array representing the state of each cell on the board
 
-    public double incX;
-    public double incY;
-    public double lowerX;
-    public double upperX;
-    public double lowerY;
-    public double upperY;
+    public double incX;           // Increment value for the x-coordinate of each cell
+    public double incY;           // Increment value for the y-coordinate of each cell
+    public double lowerX;         // Lower bound of x-coordinate of the board
+    public double upperX;         // Upper bound of x-coordinate of the board
+    public double lowerY;         // Lower bound of y-coordinate of the board
+    public double upperY;         // Upper bound of y-coordinate of the board
 
     public Board(int x, int y, int halfWidth, int halfHeight, int rows, int cols, boolean filled, boolean[][] board) {
-        super(x, y, halfWidth, halfHeight, filled);
+        super(x, y, halfWidth, halfHeight, filled);  // Call the constructor of the parent class
         this.rows = rows;
         this.cols = cols;
         this.board = board;
-        calculateBounds();
+        calculateBounds();  // Calculate the bounds of the board based on the provided parameters
     }
 
     public void calculateBounds() {
-        incX = (double)2 * halfWidth / cols;
-        incY = (double)2 * halfHeight / rows;
-        lowerX = x - halfWidth + incX / 2;
-        upperX = x + halfWidth - incX / 2;
-        lowerY = y - halfHeight + incY / 2;
-        upperY = y + halfHeight - incY / 2;
+        incX = (double)2 * halfWidth / cols;  // Calculate the increment value for x-coordinates
+        incY = (double)2 * halfHeight / rows;  // Calculate the increment value for y-coordinates
+        lowerX = x - halfWidth + incX / 2;  // Calculate the lower bound of x-coordinate
+        upperX = x + halfWidth - incX / 2;  // Calculate the upper bound of x-coordinate
+        lowerY = y - halfHeight + incY / 2;  // Calculate the lower bound of y-coordinate
+        upperY = y + halfHeight - incY / 2;  // Calculate the upper bound of y-coordinate
     }
 
     public double[] getCellCM(double pX, double pY) {
@@ -84,9 +84,9 @@ public class Board extends Rectangle {
     }
 
     public void draw() {
-        calculateBounds();
-        drawGrid();
-        super.draw();
-        drawAxes();
+        calculateBounds();  // Recalculate the bounds before drawing
+        drawGrid();  // Draw the grid
+        super.draw();  // Call the draw method of the parent class to draw the rectangle
+        drawAxes();  // Draw the axes
     }
 }
